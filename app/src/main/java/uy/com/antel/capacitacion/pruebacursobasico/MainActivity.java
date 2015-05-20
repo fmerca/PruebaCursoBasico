@@ -29,21 +29,24 @@ public class MainActivity extends ActionBarActivity {
         Intent share_image = this.getIntent();
         Cursor cursor = null;
         Uri image_Uri = (Uri) share_image.getParcelableExtra(Intent.EXTRA_STREAM);
+        Intent openIntent = new Intent(MainActivity.this, LoginActivity.class);
+        toast = Toast.makeText(MainActivity.this, "Ninguna Imagen Seleccionada",
+                Toast.LENGTH_SHORT);
+        if (image_Uri==null) {
+            this.finish();
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        } else {
         String[] imgs = {MediaStore.Images.Media.DATA};
         cursor = this.getContentResolver().query(image_Uri, imgs, null, null, null);
         cursor.moveToFirst();
         cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
 
-        Intent openIntent = new Intent(MainActivity.this, LoginActivity.class);
-        toast = Toast.makeText(MainActivity.this, "Ninguna Imagen Seleccionada",
-                Toast.LENGTH_SHORT);
 
-        if (imgs==null) {
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
-        } else {
+
+
             openIntent.setAction(Intent.ACTION_SEND);
-            openIntent.putExtra(Intent.EXTRA_STREAM,imgs);
+            openIntent.putExtra(Intent.EXTRA_STREAM,image_Uri);
             startActivity(openIntent);
         }
     }
