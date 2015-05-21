@@ -10,10 +10,10 @@
     <string name="title_activity_verificacion">Checking</string>
 
 
-    <string name="strProgress">Login In...</string>
+    <string name="strProgress">Loggin In...</string>
     <string name="bad_usr">Wrong Login!</string>
     <string name="title_activity_compartir_archivo" translatable="false">Compartir Archivo</string>
 
-    <string name="hello_world">Hello world!</string>
+
 
 </resources>

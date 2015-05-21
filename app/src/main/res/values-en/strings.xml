@@ -5,6 +5,6 @@
     <string name="strPass">Password:</string>
     <string name="btnLogin">Login</string>
     <string name="title_activity_verificacion">Checking</string>
-    <string name="strProgress">Login In...</string>
+    <string name="strProgress">Loggin In...</string>
     <string name="bad_usr">Wrong Login!</string>
 </resources>

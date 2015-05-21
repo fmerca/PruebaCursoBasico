@@ -46,15 +46,9 @@
             android:name=".CompartirArchivo"
             android:label="@string/title_activity_compartir_archivo" >
         </activity>
-        <activity
-            android:name=".LoginActivity2"
-            android:label="@string/title_activity_login_activity2"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+
+
     </application>
 
 </manifest>

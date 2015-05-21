@@ -19,26 +19,7 @@ public class Verificacion extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verificacion);
         pb = (ProgressBar) findViewById(R.id.progressBar);
-        new Thread(new Runnable() {
-            public void run() {
 
-                handler.post(new Runnable() {
-                    public void run() {
-
-                        try {
-                            // Sleep for 200 milliseconds.
-                            //Just to display the progress slowly
-                            Thread.sleep(5000);
-
-
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            }
-
-        }).start();
 
 
         Intent result=new Intent();
