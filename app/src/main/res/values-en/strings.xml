@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="action_settings">Settings</string>
+    <string name="strUsu">User:</string>
+    <string name="strPass">Password:</string>
+    <string name="btnLogin">Login</string>
+    <string name="title_activity_verificacion">Checking</string>
+    <string name="strProgress">Login In...</string>
+    <string name="bad_usr">Wrong Login!</string>
 </resources>

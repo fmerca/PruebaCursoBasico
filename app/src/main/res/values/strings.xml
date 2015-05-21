@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name" translatable="false">PruebaCursoBasico</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login" translatable="false">PruebaFinal_2015</string>
+
+
+    <string name="strUsu">User:</string>
+    <string name="strPass">Password:</string>
+    <string name="btnLogin">Login</string>
+    <string name="title_activity_verificacion">Checking</string>
+
+
+    <string name="strProgress">Login In...</string>
+    <string name="bad_usr">Wrong Login!</string>
+    <string name="title_activity_compartir_archivo" translatable="false">Compartir Archivo</string>
 
     <string name="hello_world">Hello world!</string>
 

@@ -21,6 +21,7 @@ public class MainActivity extends ActionBarActivity {
 
     Toast toast;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +46,14 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-            openIntent.setAction(Intent.ACTION_SEND);
-            openIntent.putExtra(Intent.EXTRA_STREAM,image_Uri);
+//            openIntent.setAction(Intent.ACTION_SEND);
+//            openIntent.putExtra(Intent.EXTRA_STREAM,image_Uri);
+            openIntent.putExtra("uri", image_Uri.toString());
             startActivity(openIntent);
         }
     }
+
+
 
 
     @Override

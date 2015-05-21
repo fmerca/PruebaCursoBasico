@@ -27,6 +27,14 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".Verificacion"
+            android:label="@string/title_activity_verificacion" >
+        </activity>
+        <activity
+            android:name=".CompartirArchivo"
+            android:label="@string/title_activity_compartir_archivo" >
+        </activity>
     </application>
 
 </manifest>
