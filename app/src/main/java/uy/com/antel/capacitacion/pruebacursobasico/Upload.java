@@ -47,9 +47,9 @@ public class Upload extends Service {
             Notification.Builder mBuilder =
                     new Notification.Builder(Upload.this)
                             .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle("Mi notificación")
-                            .setContentText("Archivo:"+bundle.getString("uri")+"/n"
-                            +"Carpeta:"+bundle.getString("carpeta"));
+                            .setContentTitle(""+R.string.strCargaCompleta)
+                            .setContentText(""+R.string.strUri+bundle.getString("uri")+"/n"
+                            +""+R.string.strFolder+bundle.getString("carpeta"));
             Intent resultIntent = new Intent(Upload.this, CompartirArchivo.class);
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(Upload.this);
             stackBuilder.addParentStack(MainActivity.class);

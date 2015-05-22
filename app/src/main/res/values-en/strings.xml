@@ -10,4 +10,6 @@
     <string name="strUri">File:</string>
     <string name="strCarga">Upload File</string>
     <string name="strCargaIniciada">Starting Upload</string>
+    <string name="strCargaCompleta">Upload Complete</string>
+    <string name="strFolder">Folder:</string>
 </resources>

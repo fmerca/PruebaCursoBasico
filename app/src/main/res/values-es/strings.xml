@@ -10,4 +10,6 @@
     <string name="strUri">Archivo:</string>
     <string name="strCarga">Cargar Archivo</string>
     <string name="strCargaIniciada">Carga Iniciada</string>
+    <string name="strCargaCompleta">Carga Completada</string>
+    <string name="strFolder">Carpeta:</string>
 </resources>
