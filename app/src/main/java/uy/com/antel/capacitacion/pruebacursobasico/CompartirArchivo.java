@@ -1,36 +1,18 @@
 package uy.com.antel.capacitacion.pruebacursobasico;
 
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class CompartirArchivo extends ActionBarActivity {
-    private Handler handler = new Handler();
-    int progress = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compartir_archivo);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(progress <100){
-                    try{
-                        Thread.sleep(5000);
-                    }catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
 
-
-                    progress++;
-
-
-                }
-            }
-        }).start();
 
     }
 

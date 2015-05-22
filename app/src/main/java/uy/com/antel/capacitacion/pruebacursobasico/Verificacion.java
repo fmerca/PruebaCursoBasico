@@ -1,9 +1,9 @@
 package uy.com.antel.capacitacion.pruebacursobasico;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
@@ -11,9 +11,11 @@ import android.widget.ProgressBar;
 
 public class Verificacion extends ActionBarActivity {
 
-    private int progressStatus = 0;
-    ProgressBar pb;
+   ProgressBar pb;
     private Handler handler = new Handler();
+    Bundle bundle;
+
+    Intent result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,18 +24,41 @@ public class Verificacion extends ActionBarActivity {
 
 
 
-        Intent result=new Intent();
-        Intent openIntent = new Intent(Verificacion.this, CompartirArchivo.class);
-        Bundle bundle=this.getIntent().getExtras();
-        if(bundle.getString("usu").equalsIgnoreCase("USR1") && bundle.getString("pass").equals("PASS1")){
-            openIntent.putExtra("uri", bundle.getString("uri"));
+        result=new Intent();
 
-            startActivity(openIntent);
-        }else{
-            result.putExtra("login", false);
-            this.setResult(RESULT_OK, result);
-            finish();
-        }
+        bundle=this.getIntent().getExtras();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                    try{
+                        Thread.sleep(5000);
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(bundle.getString("usu").equalsIgnoreCase("USR1") && bundle.getString("pass").equals("PASS1")){
+                            result.putExtra("login", true);
+                            Verificacion.this.setResult(RESULT_OK, result);
+
+                        }else{
+                            result.putExtra("login", false);
+                            Verificacion.this.setResult(RESULT_OK, result);
+
+                        }
+                        finish();
+                    }
+                }) ;
+
+
+
+
+            }
+        }).start();
+
 
 
     }

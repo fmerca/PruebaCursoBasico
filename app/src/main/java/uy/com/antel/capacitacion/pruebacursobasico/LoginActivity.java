@@ -1,9 +1,8 @@
 package uy.com.antel.capacitacion.pruebacursobasico;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +18,8 @@ public class LoginActivity extends ActionBarActivity {
     final private static Integer CODE = 1;
     Toast toast;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +28,13 @@ public class LoginActivity extends ActionBarActivity {
         txtUsu = (EditText)findViewById(R.id.txtUsu);
         txtPass = (EditText)findViewById(R.id.txtPass);
 
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = LoginActivity.this.getIntent().getExtras();
-                Intent openIntent = new Intent(LoginActivity.this, Verificacion.class);
-                String img_uri = bundle.getString("uri");
-                openIntent.putExtra("uri", img_uri);
+
+                Intent openIntent= new Intent(LoginActivity.this, Verificacion.class);
                 openIntent.putExtra("usu", txtUsu.getText().toString());
                 openIntent.putExtra("pass", txtPass.getText().toString());
                 startActivityForResult(openIntent, CODE);
@@ -47,14 +48,22 @@ public class LoginActivity extends ActionBarActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 // TODO Auto-generated method stub
+
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CODE && resultCode == RESULT_OK) {
             Boolean value_result = data.getBooleanExtra("login", false);
-
-            if (!value_result) {
+            if (value_result) {
+                Intent openCargar = new Intent(LoginActivity.this, CompartirArchivo.class);
+                Bundle bundle = LoginActivity.this.getIntent().getExtras();
+                String img_uri = bundle.getString("uri");
+                openCargar.putExtra("uri", img_uri);
+                startActivity(openCargar);
+                finish();
+            } else {
                 toast = Toast.makeText(this, R.string.bad_usr, Toast.LENGTH_SHORT);
+                toast.show();
             }
-            toast.show();
+
         }
     }
 

@@ -1,16 +1,11 @@
 package uy.com.antel.capacitacion.pruebacursobasico;
 
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.database.CharArrayBuffer;
-import android.database.ContentObserver;
 import android.database.Cursor;
-import android.database.DataSetObserver;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,8 +23,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         Intent share_image = this.getIntent();
-        Cursor cursor = null;
-        Uri image_Uri = (Uri) share_image.getParcelableExtra(Intent.EXTRA_STREAM);
+        Cursor cursor;
+        Uri image_Uri = share_image.getParcelableExtra(Intent.EXTRA_STREAM);
         Intent openIntent = new Intent(MainActivity.this, LoginActivity.class);
         toast = Toast.makeText(MainActivity.this, "Ninguna Imagen Seleccionada",
                 Toast.LENGTH_SHORT);
@@ -50,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
 //            openIntent.putExtra(Intent.EXTRA_STREAM,image_Uri);
             openIntent.putExtra("uri", image_Uri.toString());
             startActivity(openIntent);
+            finish();
         }
     }
 
