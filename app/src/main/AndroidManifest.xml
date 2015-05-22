@@ -47,8 +47,11 @@
             android:label="@string/title_activity_compartir_archivo" >
         </activity>
 
-
-
+        <service
+            android:name=".Upload"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

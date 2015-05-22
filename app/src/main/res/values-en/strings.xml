@@ -7,4 +7,7 @@
     <string name="title_activity_verificacion">Checking</string>
     <string name="strProgress">Loggin In...</string>
     <string name="bad_usr">Wrong Login!</string>
+    <string name="strUri">File:</string>
+    <string name="strCarga">Upload File</string>
+    <string name="strCargaIniciada">Starting Upload</string>
 </resources>

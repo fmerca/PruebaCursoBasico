@@ -36,14 +36,14 @@ public class MainActivity extends ActionBarActivity {
         String[] imgs = {MediaStore.Images.Media.DATA};
         cursor = this.getContentResolver().query(image_Uri, imgs, null, null, null);
         cursor.moveToFirst();
-        cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
+
 
 
 
 
 //            openIntent.setAction(Intent.ACTION_SEND);
 //            openIntent.putExtra(Intent.EXTRA_STREAM,image_Uri);
-            openIntent.putExtra("uri", image_Uri.toString());
+            openIntent.putExtra("uri", cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)));
             startActivity(openIntent);
             finish();
         }

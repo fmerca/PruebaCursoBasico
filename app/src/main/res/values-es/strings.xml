@@ -7,4 +7,7 @@
     <string name="title_activity_verificacion">Verificación</string>
     <string name="strProgress">Autenticando...</string>
     <string name="bad_usr">Autenticación incorrecta</string>
+    <string name="strUri">Archivo:</string>
+    <string name="strCarga">Cargar Archivo</string>
+    <string name="strCargaIniciada">Carga Iniciada</string>
 </resources>

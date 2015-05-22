@@ -7,5 +7,29 @@
     tools:context="uy.com.antel.capacitacion.pruebacursobasico.CompartirArchivo">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/strUri"
+        android:id="@+id/txtArchivo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_below="@+id/txtArchivo"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="57dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strCarga"
+        android:id="@+id/btnCargar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="101dp" />
 </RelativeLayout>

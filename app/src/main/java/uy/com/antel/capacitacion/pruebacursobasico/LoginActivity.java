@@ -47,19 +47,25 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-// TODO Auto-generated method stub
+
 
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CODE && resultCode == RESULT_OK) {
             Boolean value_result = data.getBooleanExtra("login", false);
             if (value_result) {
+                String[] carpetas =getResources().getStringArray(R.array.carpetas);
+
                 Intent openCargar = new Intent(LoginActivity.this, CompartirArchivo.class);
                 Bundle bundle = LoginActivity.this.getIntent().getExtras();
                 String img_uri = bundle.getString("uri");
                 openCargar.putExtra("uri", img_uri);
+                openCargar.putExtra("carpetas", carpetas);
                 startActivity(openCargar);
                 finish();
             } else {
+                txtUsu.setText("");
+                txtPass.setText("");
+                txtUsu.requestFocus();
                 toast = Toast.makeText(this, R.string.bad_usr, Toast.LENGTH_SHORT);
                 toast.show();
             }

@@ -13,7 +13,16 @@
     <string name="strProgress">Loggin In...</string>
     <string name="bad_usr">Wrong Login!</string>
     <string name="title_activity_compartir_archivo" translatable="false">Compartir Archivo</string>
+    <string name="strUri">File:</string>
+    <string name="strCarga">Upload File</string>
 
+    <string-array name="carpetas">
+        <item>Imagenes</item>
+        <item>Documentos</item>
+        <item>Musica</item>
+        <item>Videos</item>
+    </string-array>
+    <string name="strCargaIniciada">Starting Upload</string>
 
 
 </resources>
