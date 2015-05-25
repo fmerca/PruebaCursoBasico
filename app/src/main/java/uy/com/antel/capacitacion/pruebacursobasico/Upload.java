@@ -2,11 +2,10 @@ package uy.com.antel.capacitacion.pruebacursobasico;
 
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
-import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -43,20 +42,37 @@ public class Upload extends Service {
             }
 
             //TODO notificacion + bundle uri y carpeta
-
+            int s = R.string.strCargaCompleta;
+            String ss  = getResources().getString(s);
             Notification.Builder mBuilder =
                     new Notification.Builder(Upload.this)
-                            .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle(""+R.string.strCargaCompleta)
-                            .setContentText(""+R.string.strUri+bundle.getString("uri")+"/n"
-                            +""+R.string.strFolder+bundle.getString("carpeta"));
-            Intent resultIntent = new Intent(Upload.this, CompartirArchivo.class);
-            TaskStackBuilder stackBuilder = TaskStackBuilder.create(Upload.this);
-            stackBuilder.addParentStack(MainActivity.class);
-            stackBuilder.addNextIntent(resultIntent);
-            PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-            mBuilder.setContentIntent(resultPendingIntent);
+                            .setSmallIcon(R.mipmap.folder)
+                            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.folder))
+                            .setContentTitle(ss);
+
+
+//            Intent resultIntent = new Intent(Upload.this, CompartirArchivo.class);
+//            TaskStackBuilder stackBuilder = TaskStackBuilder.create(Upload.this);
+//            stackBuilder.addParentStack(MainActivity.class);
+//            stackBuilder.addNextIntent(resultIntent);
+//            PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+//            //mBuilder.setContentIntent(resultPendingIntent);
             NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            Notification.InboxStyle inboxStyle= new Notification.InboxStyle();
+
+            int u = R.string.strUri;
+            String uu  = getResources().getString(u);
+            int f = R.string.strFolder;
+            String ff  = getResources().getString(f);
+
+            String[] events  = new String[2];
+            events[0] = uu+bundle.getString("uri");
+            events[1] = ff+bundle.getString("carpeta");
+
+            for(int i = 0; i< events.length; i++){
+                inboxStyle.addLine(events[i]);
+            }
+            mBuilder.setStyle(inboxStyle);
             mNotificationManager.notify(mId, mBuilder.build());
             stopSelf(msg.arg1);
         }
